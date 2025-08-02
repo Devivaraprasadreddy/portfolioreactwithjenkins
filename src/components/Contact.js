@@ -4,6 +4,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaLinkedin,
+  FaGithub,
   FaWhatsapp
 } from 'react-icons/fa';
 import '../App.css';
@@ -44,7 +45,7 @@ function Contact() {
                   </a>
                 </p>
 		<p className="contact-info mb-3">
-                  <FaGitHub className="me-2 icon-warning" />
+                  <FaGithub className="me-2 icon-warning" />
                   <a
                     href="https://github.com/Devivaraprasadreddy/Prasadreddyportofolioshiwnashsolutions.git"
                     target="_blank"
