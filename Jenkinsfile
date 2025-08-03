@@ -4,11 +4,6 @@ pipeline {
     environment {
         APP_DIR = "portfolio-app"
     }
-
-    triggers {
-        githubPush() // This will trigger build on push (if webhook is configured properly)
-    }
-
     stages {
         stage('Clean Workspace') {
             steps {
