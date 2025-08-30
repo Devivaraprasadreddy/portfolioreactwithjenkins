@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-k8s-deployment
+  name: portfolio-react-shiwansh
 spec:
   selector:
     matchLabels:
-      app: spring-boot-k8s
+      app: portfolio-react-shiwansh
   replicas: 2
   template:
     metadata:
