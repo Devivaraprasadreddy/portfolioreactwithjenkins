@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: portfolio-react-shiwansh
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: portfolio-react-shiwansh
-  replicas: 2
   template:
     metadata:
       labels:
@@ -17,26 +17,24 @@ spec:
           image: dsp9391/reddyreactportfolioshiwansh:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 80   # Changed to 80
           resources:
             requests:
-              memory: "32Mi" 
-              cpu: "100m"      
+              memory: "32Mi"
+              cpu: "100m"
             limits:
-              memory: "1Gi" 
-              cpu: "1000m"      
-              
----
+              memory: "1Gi"
+              cpu: "1000m"
 
-apiVersion: v1 # Kubernetes API version
-kind: Service # Kubernetes resource kind we are creating
-metadata: # Metadata of the resource kind we are creating
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: portfolio-react-shiwansh
 spec:
+  type: LoadBalancer
   selector:
     app: portfolio-react-shiwansh
   ports:
-    - protocol: "TCP"
-      port: 8080 # The port that the service is running on in the cluster
-      targetPort: 8080 # The port exposed by the service
-  type: LoadBalancer # type of the service.
+    - port: 80        # Service port
+      targetPort: 80  # Container port
